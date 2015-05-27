@@ -43,7 +43,7 @@ public class CoolWeatherDB {
 	}
 	
 	//从数据库读取全国省份的信息
-	public List<Province> loadProvince(){
+	public List<Province> loadProvinces(){
 		List<Province> list = new ArrayList<Province>();
 		Cursor cursor = db.query("Province", null, null, null, null, null, null);
 		if(cursor.moveToFirst()){
@@ -65,7 +65,6 @@ public class CoolWeatherDB {
 	public void saveCity(City city){
 		if(city!=null){
 			ContentValues values = new ContentValues();
-			values.put("id", city.getId());
 			values.put("city_name", city.getCityName());
 			values.put("city_code", city.getCityCode());
 			values.put("province_id", city.getProvinceId());
@@ -97,7 +96,6 @@ public class CoolWeatherDB {
 	public void saveCounty(County county){
 		if(county!=null){
 			ContentValues values = new ContentValues();
-			values.put("id", county.getId());
 			values.put("county_name", county.getCountyName());
 			values.put("county_code", county.getCountyCode());
 			values.put("city_id", county.getCityId());
